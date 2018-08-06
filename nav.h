@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector.h"
+#include "navvec.h"
 #include <vector>
 
 class CNavPlace
@@ -40,7 +40,7 @@ public:
 	bool IsIdealSniperSpot(void) const { return (m_flags & IDEAL_SNIPER_SPOT) ? true : false; }
 	bool IsExposed(void) const { return (m_flags & EXPOSED) ? true : false; }
 
-	Vector m_pos;											// world coordinates of the spot
+	navvec m_pos;											// world coordinates of the spot
 	unsigned int m_id;										// this spot's unique ID
 	unsigned char m_flags;									// bit flags
 };
@@ -139,9 +139,9 @@ class CNavArea
 public:
 	uint32_t m_id;
 	int32_t m_attributeFlags;
-	Vector m_nwCorner;
-	Vector m_seCorner;
-	Vector m_center;
+	navvec m_nwCorner;
+	navvec m_seCorner;
+	navvec m_center;
 	float m_invDzCorners;
 	float m_invDxCorners;
 	float m_neY;
@@ -160,7 +160,7 @@ public:
 
 	// Check if the given point is overlapping the area
 	// @return True if 'pos' is within 2D extents of area.
-	bool IsOverlapping(const Vector &vecPos, float flTolerance = 0)
+	bool IsOverlapping(const navvec &vecPos, float flTolerance = 0)
 	{
 		if (vecPos.x + flTolerance < this->m_nwCorner.x)
 			return false;
@@ -178,7 +178,7 @@ public:
 	}
 
 	//Check if the point is within the 3D bounds of this area
-	bool Contains(Vector &vecPoint)
+	bool Contains(navvec &vecPoint)
 	{
 		if (!IsOverlapping(vecPoint))
 			return false;
