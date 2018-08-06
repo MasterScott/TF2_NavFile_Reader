@@ -90,8 +90,8 @@ public:
 			CNavArea area;
 			fs.read((char*)&area.m_id, sizeof(uint32_t));
 			fs.read((char*)&area.m_attributeFlags, sizeof(uint32_t));
-			fs.read((char*)&area.m_nwCorner, sizeof(navvec));
-			fs.read((char*)&area.m_seCorner, sizeof(navvec));
+			fs.read((char*)&area.m_nwCorner, sizeof(Vector));
+			fs.read((char*)&area.m_seCorner, sizeof(Vector));
 			fs.read((char*)&area.m_neY, sizeof(float));
 			fs.read((char*)&area.m_swY, sizeof(float));
 
@@ -108,8 +108,8 @@ public:
 				area.m_invDxCorners = area.m_invDzCorners = 0.0f;
 
 			//Change the tolerance if you wish
-			area.m_minZ = minvec(area.m_seCorner.z, area.m_nwCorner.z) - 18.f;
-			area.m_maxZ = maxvec(area.m_seCorner.z, area.m_nwCorner.z) + 18.f;
+			area.m_minZ = min(area.m_seCorner.z, area.m_nwCorner.z) - 18.f;
+			area.m_maxZ = max(area.m_seCorner.z, area.m_nwCorner.z) + 18.f;
 
 			for (int dir = 0; dir < NUM_DIRECTIONS; dir++)
 			{
@@ -138,7 +138,7 @@ public:
 			{
 				HidingSpot spot;
 				fs.read((char*)&spot.m_id, sizeof(uint32_t));
-				fs.read((char*)&spot.m_pos, sizeof(navvec));
+				fs.read((char*)&spot.m_pos, sizeof(Vector));
 				fs.read((char*)&spot.m_flags, sizeof(unsigned char));
 
 				area.m_hidingSpots.push_back(spot);
