@@ -12,5 +12,4 @@ constructor is intended to work with level name from engine->GetLevelName() or w
 4.) Done!
 
 License: http://www.wtfpl.net/txt/copying/
-
 Credits: Source Engine SDK by Valve -> cool and good header files
