@@ -150,6 +150,7 @@ public:
 	float m_maxZ;
 	std::vector<NavConnect> m_connections;
 	std::vector<HidingSpot> m_hidingSpots;
+	std::vector<SpotEncounter> m_spotEncounters;
 	uint32_t m_encounterSpotCount;
 	uint16_t m_indexType;
 	float m_earliestOccupyTime[MAX_NAV_TEAMS];

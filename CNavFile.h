@@ -164,6 +164,8 @@ public:
 					fs.read((char*)&order.t, sizeof(unsigned char));
 					spot.spots.push_back(order);
 				}
+
+				area.m_spotEncounters.push_back(spot);
 			}
 
 			fs.read((char*)&area.m_indexType, sizeof(uint16_t));
