@@ -46,6 +46,7 @@ public:
 };
 
 class CNavArea;
+struct SpotEncounter;
 struct NavConnect;
 
 struct AreaBindInfo
