@@ -13,16 +13,17 @@ public:
         if (!szLevelname)
             return;
 
-        m_mapName = std::string("tf/");
-        std::string map(szLevelname);
+//        m_mapName = std::string("tf/");
+//        std::string map(szLevelname);
 
-        if (map.find("maps/") == std::string::npos)
-            m_mapName.append("maps/");
+//        if (map.find("maps/") == std::string::npos)
+//            m_mapName.append("maps/");
 
+//        m_mapName.append(szLevelname);
+//        int dotpos = m_mapName.find('.');
+//        m_mapName  = m_mapName.substr(0, dotpos);
+//        m_mapName.append(".nav");
         m_mapName.append(szLevelname);
-        int dotpos = m_mapName.find('.');
-        m_mapName  = m_mapName.substr(0, dotpos);
-        m_mapName.append(".nav");
 
         std::ifstream fs(m_mapName, std::ios::binary);
 
